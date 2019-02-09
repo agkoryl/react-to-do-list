@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import TaskContainer from './TaskContainer';
+import CreateTask from './CreateTask';
 
 
 class App extends Component {
   render() {
     return (
       <div>
-       <TaskContainer></TaskContainer>
+        <CreateTask></CreateTask>
+        <TaskContainer></TaskContainer>
       </div>
     );
   }
