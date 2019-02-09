@@ -3,7 +3,7 @@ import React from 'react';
 
 
 class CreateTask extends React.Component {
-
+    
     state = {
         name: '',
 
@@ -14,16 +14,24 @@ class CreateTask extends React.Component {
     }
 
     keyDown = (event) => {
+        if (!this.state.name) {
+            return;
+        }
         if (event.keyCode === 13) {
             this.props.createHandler(this.state.name);
+            this.setState({name: ''});
         }
     }
 
 
+
+
     render() {
+        const styles = {margin: "20px", borderRadius: "5px", fontSize: "20px", width: "600px", height: "50px", padding: "10px"}
+
         return (
             <div>
-                <input type="text" placeholder="Add task" onChange={this.handleChange} onKeyDown={this.keyDown}></input>
+                <input  style={styles} type="text" placeholder="Add task" onChange={this.handleChange} onKeyDown={this.keyDown} value={this.state.name}></input>
 
             </div>
         )
